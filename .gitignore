@@ -1,0 +1,91 @@
+# ========================================
+# PYTHON BASICS
+# ========================================
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+*.manifest
+*.spec
+
+# ========================================
+# ENVIRONMENTS
+# ========================================
+.env
+.env.*
+*.venv
+venv/
+ENV/
+env/
+.venv/
+*.env.local
+.DS_Store
+
+# ========================================
+# EDITORS / IDEs
+# ========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ========================================
+# CHAINLIT SPECIFIC
+# ========================================
+.chainlit/logs/
+.chainlit/state/
+.chainlit/db.sqlite3
+chainlit.db
+chainlit.db-shm
+chainlit.db-wal
+.chainlit/__pycache__/
+.chainlit/*.log
+chainlit_cache/
+uploads/
+tmp/
+data/
+__debug__/
+
+# ========================================
+# DOCKER / COMPOSE
+# ========================================
+*.pid
+*.log
+*.tmp
+docker-compose.override.yml
+docker-compose.local.yml
+
+# ========================================
+# OS FILES
+# ========================================
+Thumbs.db
+Desktop.ini
+*.bak
+*.tmp
+*.orig
+*.rej
+*$~
+
+# ========================================
+# CREDENTIALS / SECURITY
+# ========================================
+# Never commit API keys, secrets, or credentials
+*.pem
+*.key
+*.crt
+*.p12
+*.jks
+secrets.json
+credentials.json
+config.json
+
+# ========================================
+# JUPYTER / NOTEBOOKS
+# ========================================
+.ipynb_checkpoints
+*.ipynb

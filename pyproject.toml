@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "chainlit-oauth-stripe"
+version = "0.1.0"
+description = ""
+authors = ["umair <umairapi1995@gmail.com>"]
+readme = "README.md"
+packages = [{include = "chainlit_oauth_stripe"}]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+chainlit = "^2.9.0"
+python-dotenv = "^1.2.1"
+boto3 = "^1.40.69"
+sqlalchemy = "^2.0.44"
+sqlmodel = "^0.0.27"
+asyncpg = "^0.30.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
