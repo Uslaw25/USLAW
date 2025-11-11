@@ -6,14 +6,12 @@ It mounts the Chainlit application and registers additional routes
 for Google OAuth authentication from React app.
 """
 
-import os
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from chainlit.utils import mount_chainlit
-from chainlit.server import _authenticate_user
 
 app = FastAPI(title="Chainlit with Google OAuth")
 
@@ -37,7 +35,7 @@ async def google_auth(request: Request, auth_request: GoogleAuthRequest):
     Following the exact pattern from WordPress OAuth implementation.
     """
     try:
-        from auth_providers.google_oauth_provider import GoogleOAuthProvider
+        from chatbot.auth_providers import GoogleOAuthProvider
         from chainlit.auth import create_jwt, set_auth_cookie
         from chainlit.data import get_data_layer
         

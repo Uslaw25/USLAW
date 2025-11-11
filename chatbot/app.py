@@ -3,9 +3,6 @@ from dotenv import load_dotenv
 from typing import Dict, Optional
 import chainlit as cl
 import os
-import jwt
-import json
-import httpx
 
 from storage.storage_clients.digitalocean import DigitalOceanStorageClient
 
