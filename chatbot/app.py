@@ -44,7 +44,7 @@ def get_data_layer():
     """
     conninfo = os.environ.get("DATABASE_URL")
     if not conninfo:
-        raise ValueError("DATABASE_URL environment variable is not set")
+        raise ValueError("DATABASE_URL environment variable is not set... ")
 
     # Make sure the connection string uses the asyncpg driver
     if "postgresql" in conninfo and "+asyncpg" not in conninfo:

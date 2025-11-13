@@ -18,7 +18,7 @@ app = FastAPI(title="Chainlit with Google OAuth")
 # Add CORS middleware for React app communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React app URL
+    allow_origins=["http://localhost:3000", "http://localhost:80"],  # React app URLs
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -35,13 +35,14 @@ async def google_auth(request: Request, auth_request: GoogleAuthRequest):
     Following the exact pattern from WordPress OAuth implementation.
     """
     try:
-        from chatbot.auth_providers import GoogleOAuthProvider
+        from auth_providers import GoogleOAuthProvider
         from chainlit.auth import create_jwt, set_auth_cookie
         from chainlit.data import get_data_layer
         
         provider = GoogleOAuthProvider()
         raw_user_data, default_user = await provider.get_user_info(auth_request.credential)
-        
+        print(f"User data RAQ: {raw_user_data}")
+        print(f"User data: default {raw_user_data}")
         # Create user in database using existing data layer
         data_layer = get_data_layer()
         if data_layer:

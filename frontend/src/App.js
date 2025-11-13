@@ -19,7 +19,7 @@ function App() {
   return (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
       <AuthProvider>
-        <Router>
+        <Router basename="/app">
           <div className="App">
             <Routes>
               <Route path="/login" element={<Login />} />
