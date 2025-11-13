@@ -12,26 +12,41 @@ const ProtectedRoute = ({ children }) => {
   
   if (loading) return <div>Loading...</div>;
   
-  return user ? children : <Navigate to="/login" />;
+  return user ? children : <Navigate to="/app/login" />;
+};
+
+// Smart Redirect Component - checks auth status and redirects appropriately
+const SmartRedirect = () => {
+  const { user, loading } = useAuth();
+  
+  if (loading) return <div>Loading...</div>;
+  
+  return user ? <Navigate to="/app/dashboard" /> : <Navigate to="/app/login" />;
 };
 
 function App() {
   return (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
       <AuthProvider>
-        <Router basename="/app">
+        <Router>
           <div className="App">
             <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route 
-                path="/dashboard" 
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route path="/" element={<Navigate to="/login" />} />
+              {/* Handle root path - redirect to /app */}
+              <Route path="/" element={<Navigate to="/app" replace />} />
+              
+              {/* App routes with /app prefix */}
+              <Route path="/app">
+                <Route index element={<SmartRedirect />} />
+                <Route path="login" element={<Login />} />
+                <Route 
+                  path="dashboard" 
+                  element={
+                    <ProtectedRoute>
+                      <Dashboard />
+                    </ProtectedRoute>
+                  } 
+                />
+              </Route>
             </Routes>
           </div>
         </Router>

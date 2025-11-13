@@ -13,8 +13,12 @@ const Dashboard = () => {
   };
 
   const redirectToChat = () => {
-    // Redirect to Chainlit app (now mounted at /chat)
-    window.location.href = 'http://localhost:8000/chat';
+    // Redirect to Chainlit app (environment-aware)
+    const chatUrl = process.env.NODE_ENV === 'production' 
+      ? '/chat'  // In production, use relative URL since nginx handles routing
+      : 'http://localhost:8000/chat';  // In development, use localhost
+    
+    window.location.href = chatUrl;
   };
 
   return (

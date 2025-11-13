@@ -1,0 +1,35 @@
+# Multi-stage build: React app + Nginx gateway
+FROM node:18-alpine as react-builder
+
+WORKDIR /app
+
+# Copy React app files
+COPY frontend/package*.json ./
+RUN npm install
+
+COPY frontend/ .
+
+# Set environment variables for build
+ENV GENERATE_SOURCEMAP=false
+ENV PUBLIC_URL=/app
+
+# Build React app
+RUN npm run build
+
+# Production nginx stage
+FROM nginx:alpine
+
+# Remove default nginx static assets
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy built React app to nginx html directory
+COPY --from=react-builder /app/build /usr/share/nginx/html/app
+
+# Copy nginx gateway configuration
+COPY nginx/gateway.conf /etc/nginx/conf.d/default.conf
+
+# Expose port
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]

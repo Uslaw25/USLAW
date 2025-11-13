@@ -53,7 +53,6 @@ services:
     volumes:
       - ./data:/app/data
       - ./chatbot:/app
-      - /app/__pycache__
     restart: unless-stopped
 
   # React Frontend (Development mode)
@@ -66,8 +65,8 @@ services:
     environment:
       - REACT_APP_GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-721464558790-8cncei395d6498r7v6rr4fm8utkqcj55.apps.googleusercontent.com}
     volumes:
-      - ./frontend/src:/app/src
-      - ./frontend/public:/app/public
+      - ./frontend:/app
+      - /app/node_modules
     restart: unless-stopped
 
 volumes:

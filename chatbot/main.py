@@ -18,7 +18,12 @@ app = FastAPI(title="Chainlit with Google OAuth")
 # Add CORS middleware for React app communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:80"],  # React app URLs
+    allow_origins=[
+        "http://localhost:3000", 
+        "http://localhost:80", 
+        "https://app.uslawai.com",
+        "http://app.uslawai.com"
+    ],  # React app URLs
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

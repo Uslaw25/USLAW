@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 
 const AuthContext = createContext();
 
@@ -17,7 +18,7 @@ export const AuthProvider = ({ children }) => {
   const checkAuthStatus = useCallback(async () => {
     try {
       // Check if we have valid session with FastAPI wrapper
-      const response = await fetch('http://localhost:8000/auth/validate', {
+      const response = await fetch(API_ENDPOINTS.AUTH_VALIDATE, {
         method: 'GET',
         credentials: 'include', // Include cookies
       });
@@ -51,7 +52,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       
       // Send Google credential to FastAPI wrapper endpoint
-      const response = await fetch('http://localhost:8000/auth/google', {
+      const response = await fetch(API_ENDPOINTS.AUTH_GOOGLE, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,7 +91,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       // Call logout endpoint to clear httpOnly cookies
-      await fetch('http://localhost:8000/auth/logout', {
+      await fetch(API_ENDPOINTS.AUTH_LOGOUT, {
         method: 'POST',
         credentials: 'include', // Include cookies for clearing
       });

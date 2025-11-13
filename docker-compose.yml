@@ -52,24 +52,16 @@ services:
       - ./data:/app/data
     restart: unless-stopped
 
-  # React Frontend
-  frontend:
+  # Nginx Gateway (serves React + proxies API)
+  gateway:
     build:
       context: .
-      dockerfile: Dockerfile.frontend
-    environment:
-      - REACT_APP_GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-721464558790-8cncei395d6498r7v6rr4fm8utkqcj55.apps.googleusercontent.com}
-    restart: unless-stopped
-
-  # Nginx Gateway
-  gateway:
-    image: nginx:alpine
+      dockerfile: Dockerfile.gateway
     ports:
       - "80:80"
-    volumes:
-      - ./nginx/gateway.conf:/etc/nginx/conf.d/default.conf
+    environment:
+      - REACT_APP_GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-721464558790-8cncei395d6498r7v6rr4fm8utkqcj55.apps.googleusercontent.com}
     depends_on:
-      - frontend
       - backend
     restart: unless-stopped
 
