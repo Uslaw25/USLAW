@@ -52,11 +52,11 @@ services:
       - ./data:/app/data
     restart: unless-stopped
 
-  # Nginx Gateway (serves React + proxies API)
-  gateway:
+  # Nginx Gateway (builds React + serves static files + proxies API)
+  nginx:
     build:
       context: .
-      dockerfile: Dockerfile.gateway
+      dockerfile: Dockerfile.nginx
     ports:
       - "80:80"
     environment:
