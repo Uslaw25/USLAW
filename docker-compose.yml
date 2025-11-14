@@ -27,26 +27,6 @@ services:
       - "8000:8000"
     env_file:
       - ./chatbot/.env
-    environment:
-      # Google OAuth
-      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-721464558790-8cncei395d6498r7v6rr4fm8utkqcj55.apps.googleusercontent.com}
-      
-      # Chainlit Auth
-      - CHAINLIT_AUTH_SECRET=${CHAINLIT_AUTH_SECRET:-OHzy*J%N:iqtmgG%_:wRo7ta/@ThwNWajUpT7$yw/XDRnvofX6x4d>qzf7VP19jw}
-      
-      # Database
-      - DATABASE_URL=postgresql+asyncpg://chainlit:chainlit@postgres:5432/chainlit
-      
-      # Cookie Settings
-      - CHAINLIT_COOKIE_SAMESITE=lax
-      - CHAINLIT_AUTH_COOKIE_PATH=/
-      - CHAINLIT_AUTH_COOKIE_NAME=access_token
-      
-      # DigitalOcean Spaces
-      - AWS_S3_BUCKET_NAME=${AWS_S3_BUCKET_NAME:-chainlit-auth-stripe}
-      - AWS_REGION_NAME=${AWS_REGION_NAME:-sfo3}
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-DO00P2WZTVZC7NE8DUDQ}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-CWZVQZXlqapT4wRqv/OxGoQ8My5izKEJXzzijNOoRTE}
     depends_on:
       postgres:
         condition: service_healthy
