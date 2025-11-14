@@ -25,6 +25,8 @@ services:
       dockerfile: Dockerfile.backend
     ports:
       - "8000:8000"
+    env_file:
+      - ./chatbot/.env
     environment:
       # Google OAuth
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-721464558790-8cncei395d6498r7v6rr4fm8utkqcj55.apps.googleusercontent.com}
@@ -59,6 +61,8 @@ services:
       dockerfile: Dockerfile.nginx
     ports:
       - "80:80"
+    env_file:
+      - ./frontend/.env
     environment:
       - REACT_APP_GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-721464558790-8cncei395d6498r7v6rr4fm8utkqcj55.apps.googleusercontent.com}
     depends_on:
