@@ -1,0 +1,35 @@
+version: "3.4"
+
+x-common: &common
+  stdin_open: true
+  tty: true
+  restart: unless-stopped
+
+x-app-build: &app-build
+  build:
+    context: .
+
+services:
+  app:
+    <<: [*app-build, *common]
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./:/code
+    working_dir: /code
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: chainlit
+      POSTGRES_PASSWORD: chainlit
+      POSTGRES_DB: chainlit
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+
+volumes:
+  postgres_data_dev:

@@ -3,6 +3,7 @@ name = "chainlit-oauth-stripe"
 version = "0.1.0"
 description = ""
 authors = ["umair <umairapi1995@gmail.com>"]
+package-mode = false
 readme = "README.md"
 
 [tool.poetry.dependencies]
