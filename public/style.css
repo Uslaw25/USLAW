@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
+
+.watermark {
+    display: none !important;
+}
+#welcome-screen > img {
+    display: none;
+}
+#readme-button {
+    display: none;
+}
+/*#theme-toggle {*/
+/*    display: none;*/
+/*}*/
+/* Disable welcome screen image */
+
+/*h1, h2, h3, h4, h5, h6 {*/
+/*    font-size: 16px !important; !* Change to 14px if you prefer smaller headings *!*/
+/*!*    !*color: #000000 !important;*!*!*/
+/*    font-weight: 700 !important;*/
+/*}*/
+
+/*body, p, span, li, td, th textarea {*/
+/*    font-size: 12px !important;*/
+/*    font-weight: 400 !important;*/
+/*    !*color: #5A5A5A !important;*!*/
+/*}*/

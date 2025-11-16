@@ -86,9 +86,9 @@ reaction_on_message_received = false
 
 [UI]
 # Name of the assistant.
-name = "USLaw"
+name = "US Law"
 
-# default_theme = "dark"
+default_theme = "light" # or dark
 
 # layout = "wide"
 
@@ -102,7 +102,7 @@ cot = "full"
 
 # Specify a CSS file that can be used to customize the user interface.
 # The CSS file can be served from the public directory or via an external link.
-# custom_css = "/public/test.css"
+custom_css = "/public/style.css"
 
 # Specify additional attributes for a custom CSS file
 # custom_css_attributes = "media=\"print\""
@@ -112,13 +112,13 @@ cot = "full"
 # custom_js = "/public/test.js"
 
 # The style of alert boxes. Can be "classic" or "modern".
-alert_style = "classic"
+alert_style = "modern"
 
 # Specify additional attributes for custom JS file
 # custom_js_attributes = "async type = \"module\""
 
 # Custom login page image, relative to public directory or external URL
-# login_page_image = "/public/custom-background.jpg"
+login_page_image = "https://uslaw-assest.sfo3.digitaloceanspaces.com/logo_light.png"
 
 # Custom login page image filter (Tailwind internal filters, no dark/light variants)
 # login_page_image_filter = "brightness-50 grayscale"
@@ -134,7 +134,7 @@ alert_style = "classic"
 logo_file_url = ""
 
 # Load assistant avatar image directly from URL.
-default_avatar_file_url = ""
+default_avatar_file_url = "https://uslaw-assest.sfo3.digitaloceanspaces.com/avatart.jpg"
 
 # Specify a custom build directory for the frontend.
 # This can be used to customize the frontend code.

@@ -3,11 +3,10 @@ name = "chainlit-oauth-stripe"
 version = "0.1.0"
 description = ""
 authors = ["umair <umairapi1995@gmail.com>"]
-package-mode = false
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.13,<3.14"
 chainlit = "^2.9.0"
 python-dotenv = "^1.2.1"
 boto3 = "^1.40.69"
@@ -16,8 +15,15 @@ sqlmodel = "^0.0.27"
 asyncpg = "^0.30.0"
 fastapi = "^0.116.1"
 uvicorn = "^0.35.0"
-httpx = "^0.27.0"
 pyjwt = "^2.8.0"
+langchain-core = "^1.0.5"
+langchain-pinecone = "^0.2.13"
+langchain-openai = "^1.0.3"
+langchain = "^1.0.7"
+langchain-community = "^0.4.1"
+pypdf = "^6.3.0"
+unstructured = "^0.18.20"
+python-docx = "^1.2.0"
 
 
 [build-system]

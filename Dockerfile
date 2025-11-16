@@ -16,8 +16,9 @@ WORKDIR /code
 
 COPY pyproject.toml poetry.lock README.md /code/
 
-RUN poetry install --no-interaction --no-ansi
-RUN #poetry install
+RUN poetry install --no-interaction --no-ansi --no-root
+
+#RUN poetry install
 
 # Copy the rest of the application code
 COPY . /code/
