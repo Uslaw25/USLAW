@@ -1,0 +1,40 @@
+{
+    "custom_fonts": [
+        "https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+    ],
+    "variables": {
+        "light": {
+            "--font-sans": "'Jost', Arial, sans-serif",
+            "--font-mono": "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
+            "--background": "0 0% 100%",
+            "--foreground": "0 0% 5%",
+            "--card": "0 0% 100%",
+            "--card-foreground": "0 0% 5%",
+            "--popover": "0 0% 100%",
+            "--popover-foreground": "0 0% 5%",
+            "--primary": "0 0% 0%",
+            "--primary-foreground": "0 0% 100%",
+            "--secondary": "210 40% 96.1%",
+            "--secondary-foreground": "222.2 47.4% 11.2%",
+            "--muted": "0 0% 90%",
+            "--muted-foreground": "0 0% 36%",
+            "--accent": "0 0% 95%",
+            "--accent-foreground": "222.2 47.4% 11.2%",
+            "--destructive": "0 0% 5%",
+
+            "--destructive-foreground": "0 0% 15%",
+            "--border": "0 0% 90%",
+            "--input": "0 0% 90%",
+            "--ring": "340 92% 52%",
+            "--radius": "0.75rem",
+            "--sidebar-background": "0 0% 98%",
+            "--sidebar-foreground": "240 5.3% 26.1%",
+            "--sidebar-primary": "240 5.9% 10%",
+            "--sidebar-primary-foreground": "0 0% 98%",
+            "--sidebar-accent": "240 4.8% 95.9%",
+            "--sidebar-accent-foreground": "240 5.9% 10%",
+            "--sidebar-border": "220 13% 91%",
+            "--sidebar-ring": "217.2 91.2% 59.8%"
+        }
+    }
+}

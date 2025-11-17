@@ -3,25 +3,30 @@
 .watermark {
     display: none !important;
 }
-#welcome-screen > img {
-    display: none;
-}
+/*#welcome-screen > img {*/
+/*    display: none;*/
+/*}*/
 #readme-button {
     display: none;
 }
-/*#theme-toggle {*/
-/*    display: none;*/
-/*}*/
+#theme-toggle {
+    display: none;
+}
 /* Disable welcome screen image */
 
-/*h1, h2, h3, h4, h5, h6 {*/
-/*    font-size: 16px !important; !* Change to 14px if you prefer smaller headings *!*/
-/*!*    !*color: #000000 !important;*!*!*/
-/*    font-weight: 700 !important;*/
-/*}*/
+h1, h2, h3, h4, h5, h6 {
+    font-size: 16px !important; /* Change to 14px if you prefer smaller headings */
+/*    !*color: #000000 !important;*!*/
+    font-weight: 700 !important;
+}
 
-/*body, p, span, li, td, th textarea {*/
-/*    font-size: 12px !important;*/
-/*    font-weight: 400 !important;*/
-/*    !*color: #5A5A5A !important;*!*/
-/*}*/
+body, p, span, li, td, th textarea {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    /*color: #5A5A5A !important;*/
+}
+#step-fb9f1514-95e6-46a0-9740-37b40fb9759f > div > div > div.-ml-1\.5.flex.items-center.flex-wrap > div,
+#step-76885571-25bb-4f86-90be-4073b0b11717 > div > div > div.-ml-1\.5.flex.items-center.flex-wrap > div,
+#share-thread {
+    display: none;
+}

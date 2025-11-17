@@ -134,7 +134,7 @@ login_page_image = "https://uslaw-assest.sfo3.digitaloceanspaces.com/logo_light.
 logo_file_url = ""
 
 # Load assistant avatar image directly from URL.
-default_avatar_file_url = "https://uslaw-assest.sfo3.digitaloceanspaces.com/avatart.jpg"
+#default_avatar_file_url = "https://uslaw-assest.sfo3.digitaloceanspaces.com/avatart.jpg"
 
 # Specify a custom build directory for the frontend.
 # This can be used to customize the frontend code.
