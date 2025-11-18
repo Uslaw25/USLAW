@@ -30,3 +30,12 @@ body, p, span, li, td, th textarea {
 #share-thread {
     display: none;
 }
+/* Shrink the background logo */
+img.object-cover {
+    object-fit: contain !important;
+    width: 40% !important;
+    height: 60% !important;
+    max-width: 40% !important;
+    max-height: 60% !important;
+    margin: auto !important;
+}
