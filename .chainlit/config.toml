@@ -109,7 +109,7 @@ custom_css = "/public/style.css"
 
 # Specify a JavaScript file that can be used to customize the user interface.
 # The JavaScript file can be served from the public directory.
-# custom_js = "/public/test.js"
+custom_js = "/public/login-overlay.js"
 
 # The style of alert boxes. Can be "classic" or "modern".
 alert_style = "modern"
@@ -118,7 +118,7 @@ alert_style = "modern"
 # custom_js_attributes = "async type = \"module\""
 
 # Custom login page image, relative to public directory or external URL
-login_page_image = "https://uslaw-assest.sfo3.digitaloceanspaces.com/logo_light.png"
+login_page_image = "https://uslaw-assest.sfo3.digitaloceanspaces.com/login_page.jpg"
 
 # Custom login page image filter (Tailwind internal filters, no dark/light variants)
 # login_page_image_filter = "brightness-50 grayscale"
