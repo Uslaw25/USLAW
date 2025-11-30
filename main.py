@@ -691,7 +691,8 @@ async def stripe_webhook(request: Request):
         
         # Verify webhook signature
         # webhook_secret = stripe_service.webhook_secret
-        webhook_secret = "whsec_ADYI2devLuzYLy04cLC6HODGUOvYIeQi"
+
+        webhook_secret = os.getenv("STRIPE_WEBHOOK_SECRET")
         if webhook_secret:
             try:
                 event = stripe.Webhook.construct_event(
