@@ -69,7 +69,7 @@ reaction_on_message_received = false
 
 [features.mcp]
     # Enable Model Context Protocol (MCP) features
-    enabled = false
+    enabled = true
 
 [features.mcp.sse]
     enabled = true
@@ -139,7 +139,7 @@ logo_file_url = ""
 # Specify a custom build directory for the frontend.
 # This can be used to customize the frontend code.
 # Be careful: If this is a relative path, it should not start with a slash.
-# custom_build = "./public/build"
+custom_build = "./public/dist"
 
 # Specify optional one or more custom links in the header.
 # [[UI.header_links]]

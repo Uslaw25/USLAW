@@ -1,10 +1,10 @@
 // Wait for page to fully load including images
 window.addEventListener('load', function() {
-    
+
     function addTextOverlay() {
         // Target the specific image container div
         let imageContainer = document.querySelector('div.relative.hidden.bg-muted.lg\\:block.overflow-hidden');
-        
+
         // Also try targeting by the image source
         if (!imageContainer) {
             const img = document.querySelector('img[src*="login_page.jpg"]');
@@ -12,7 +12,7 @@ window.addEventListener('load', function() {
                 imageContainer = img.parentElement;
             }
         }
-        
+
         if (imageContainer) {
             const existingOverlay = document.getElementById('login-text-overlay');
             if (existingOverlay) {
@@ -35,7 +35,7 @@ window.addEventListener('load', function() {
                 max-width: 500px;
                 text-align: center;
             `;
-            
+
             overlay.innerHTML = `
                 <div style="margin-bottom: 25px;">
                     <p style="font-size: 18px; line-height: 1.5; margin: 0; font-weight: 500; color: white;">
@@ -51,7 +51,7 @@ window.addEventListener('load', function() {
                     </p>
                 </div>
             `;
-            
+
             imageContainer.appendChild(overlay);
         }
     }

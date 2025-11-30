@@ -77,7 +77,7 @@ class LawAgent:
         """Create and return a vector store with the given index"""
         logger.info("Creating vector store with OpenAI embeddings")
         start_time = time.time()
-        embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+        embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
         vector_store = PineconeVectorStore(index=index, embedding=embeddings)
         logger.info(f"Vector store created in {time.time() - start_time:.2f} seconds")
         return vector_store
@@ -208,7 +208,7 @@ class LawAgent:
             search_kwargs={"k": 50, "score_threshold": 0.6},
         )
         # Retrieve relevant documents
-        docs = retriever.invoke(query)[:2]
+        docs = retriever.invoke(query)[:10]
         logger.info(f"GOT DOCUMENTS FROM RETRIEVER length = {len(docs)}" )
         # Add additional documents from file uploads if available
         if additional_docs:
