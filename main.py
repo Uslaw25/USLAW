@@ -375,7 +375,19 @@ async def reset_message_count(current_user: UserParam):
 async def get_usage_status(current_user: UserParam):
     """Get current message usage status for the user"""
     try:
-        # Get current message count
+        # Check if user is admin - admins have no limits
+        user_metadata = current_user.metadata or {}
+        user_role = user_metadata.get("role", "USER")
+        
+        if user_role == "ADMIN":
+            return {
+                "messageCount": 0,
+                "limit": -1,  # -1 indicates unlimited
+                "canSend": True,
+                "remaining": -1  # -1 indicates unlimited
+            }
+        
+        # Get current message count for regular users
         message_count = await data_layer.get_user_message_count(current_user.identifier)
         
         # Check if user can send more messages

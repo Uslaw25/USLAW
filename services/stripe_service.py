@@ -454,7 +454,9 @@ class StripeService:
             await self.data_layer.store_stripe_event(event_id, event_type, payload_json)
             
             # Process specific event types
-            if event_type == "customer.subscription.created":
+            if event_type == "customer.created":
+                await self._handle_customer_created(event_data)
+            elif event_type == "customer.subscription.created":
                 await self._handle_subscription_created(event_data)
             elif event_type == "customer.subscription.updated":
                 await self._handle_subscription_updated(event_data)
@@ -472,6 +474,26 @@ class StripeService:
         except Exception as e:
             logger.error(f"Error handling webhook event {event_data.get('id')}: {e}")
             return False
+
+    async def _handle_customer_created(self, event_data: Dict):
+        """Handle customer.created webhook"""
+        try:
+            customer_data = event_data.get("data", {}).get("object", {})
+            stripe_customer_id = customer_data.get("id")
+            
+            if not stripe_customer_id:
+                logger.warning("No customer ID found in customer.created event")
+                return
+                
+            logger.info(f"Customer created in Stripe: {stripe_customer_id}")
+            
+            # For customer.created events, we typically just log them
+            # The actual customer linking happens when they create a subscription
+            # or when we create a checkout session
+            
+        except Exception as e:
+            logger.error(f"Error handling customer.created event: {e}")
+            raise
 
     async def _handle_subscription_created(self, event_data: Dict):
         """Handle subscription.created webhook"""
