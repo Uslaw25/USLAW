@@ -667,7 +667,7 @@ async def get_user_billing_admin(
 
 # ========== Stripe Webhook Handler ==========
 
-@app.post("/chat/api/stripe/webhook")
+@app.post("/chat/api/stripe/webhook/")
 async def stripe_webhook(request: Request):
     """Handle Stripe webhook events"""
     try:
