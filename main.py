@@ -99,6 +99,7 @@ class ModifySubscriptionRequest(BaseModel):
     apply_discount: Optional[bool] = False
 
 class SignupRequest(BaseModel):
+    name: str
     email: str
     password: str
 
@@ -409,10 +410,11 @@ async def get_usage_status(current_user: UserParam):
 async def signup(request: SignupRequest):
     """Create a new user account with email and password"""
     try:
+        print("SIGNUP DATA",request)
         result = await data_layer.create_user_with_password(
             email=request.email,
             password=request.password,
-            metadata={"provider": "password"},
+            metadata={"provider": "password", "name": request.name},
             role="USER"  # Default role for signup
         )
         

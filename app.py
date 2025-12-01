@@ -91,6 +91,7 @@ async def auth_callback(username: str, password: str):
             cl.logger.info(f"Password auth: User {username} logged in with role {metadata.get('role')}")
             
             return cl.User(
+                display_name=metadata.get("name"),
                 identifier=user_data["identifier"],
                 metadata=metadata
             )
